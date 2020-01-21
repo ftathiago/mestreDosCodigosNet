@@ -1,0 +1,11 @@
+C:\Users\francisco.almeida\src\mestreDosCodigosNet\Utilizando POO\exercicio01\obj\Debug\netcoreapp3.1\exercicio01.csprojAssemblyReference.cache
+C:\Users\francisco.almeida\src\mestreDosCodigosNet\Utilizando POO\exercicio01\obj\Debug\netcoreapp3.1\exercicio01.AssemblyInfoInputs.cache
+C:\Users\francisco.almeida\src\mestreDosCodigosNet\Utilizando POO\exercicio01\obj\Debug\netcoreapp3.1\exercicio01.AssemblyInfo.cs
+C:\Users\francisco.almeida\src\mestreDosCodigosNet\Utilizando POO\exercicio01\bin\Debug\netcoreapp3.1\exercicio01.exe
+C:\Users\francisco.almeida\src\mestreDosCodigosNet\Utilizando POO\exercicio01\bin\Debug\netcoreapp3.1\exercicio01.deps.json
+C:\Users\francisco.almeida\src\mestreDosCodigosNet\Utilizando POO\exercicio01\bin\Debug\netcoreapp3.1\exercicio01.runtimeconfig.json
+C:\Users\francisco.almeida\src\mestreDosCodigosNet\Utilizando POO\exercicio01\bin\Debug\netcoreapp3.1\exercicio01.runtimeconfig.dev.json
+C:\Users\francisco.almeida\src\mestreDosCodigosNet\Utilizando POO\exercicio01\bin\Debug\netcoreapp3.1\exercicio01.dll
+C:\Users\francisco.almeida\src\mestreDosCodigosNet\Utilizando POO\exercicio01\bin\Debug\netcoreapp3.1\exercicio01.pdb
+C:\Users\francisco.almeida\src\mestreDosCodigosNet\Utilizando POO\exercicio01\obj\Debug\netcoreapp3.1\exercicio01.dll
+C:\Users\francisco.almeida\src\mestreDosCodigosNet\Utilizando POO\exercicio01\obj\Debug\netcoreapp3.1\exercicio01.pdb
