@@ -25,8 +25,23 @@ namespace exercicio01
                 Interfaces denotam comportamentos, podendo servir também como contrato entre camadas e forma de enfraquecimento de acoplamento.
                 Por outro lado, classes abstratas podem conter métodos e assim servir como classes básicas para frameworks ou concetradora de comportamento padrão, 
                 facilitando a implementação de Patterns como Template Method e/ou Strategy.
+
+                6- O que faz as interfaces IDisposable, IComparable, ICloneable e IEnumerable?
+                -- IDisposable: É utilizada para implementar classes em que os recursos não são gerenciados pelo framework. Ela obriga a implementação do método Dispose();
+                -- IComparable: É utilizada para tornar o objeto comparável com outros, definindo ordem de grandeza. Métodos de ordenação, em geral, pedem objetos que implementem 
+                                IComparable. Ela pede a implementação do método CompareTo
+                -- ICloneable: É utilizado para implementar a cópia de valores em novas instâncias de um objeto. Ela pede a implementação do método Clone;
+                -- IEnumerable: É utilizado para tornar possível a iteração em objetos agregadores, expondo o seu enumerador.
+                                
             */
             Console.WriteLine("Hello World!");
+            Pessoa[] pessoas = { new Pessoa("José", DateTime.Now, 2D), new Pessoa("Maria", DateTime.Now, 1.5) };
+            Galera galera = new Galera(pessoas);
+            foreach (Pessoa pessoa in galera)
+            {
+                Console.WriteLine(pessoa.GetNome());
+            }
+
         }
     }
 }

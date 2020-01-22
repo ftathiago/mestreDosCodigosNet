@@ -16,17 +16,17 @@ namespace exercicio01
             _altura = altura;
         }
 
-        public string GetNome =>
+        public string GetNome() =>
             _nome;
         public void SetNome(string nome) =>
             _nome = nome;
 
-        public DateTime GetDataNascimento =>
+        public DateTime GetDataNascimento() =>
             _dataNascimento;
         public void SetDataNascimento(DateTime dataNascimento) =>
             _dataNascimento = dataNascimento;
 
-        public double GetAltura =>
+        public double GetAltura() =>
             _altura;
 
         public void SetAltura(double altura) =>

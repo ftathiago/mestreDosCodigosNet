@@ -20,7 +20,7 @@ namespace exercicio01
         }
 
         /* Demonstrando Polimorfismo */
-        public string ToString() =>
-            String.Format($"Registro Funcional: {RegistroFuncional}; Nome: {GetNome}; Data de nascimento: {GetDataNascimento}; Altura: {GetAltura}");
+        public override string ToString() =>
+            String.Format($"Registro Funcional: {RegistroFuncional}; Nome: {GetNome()}; Data de nascimento: {GetDataNascimento()}; Altura: {GetAltura()}");
     }
 }
