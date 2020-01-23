@@ -32,7 +32,10 @@ namespace exercicio01
                                 IComparable. Ela pede a implementação do método CompareTo
                 -- ICloneable: É utilizado para implementar a cópia de valores em novas instâncias de um objeto. Ela pede a implementação do método Clone;
                 -- IEnumerable: É utilizado para tornar possível a iteração em objetos agregadores, expondo o seu enumerador.
-                                
+
+                7- Existe herança múltipla (de classe) em C#?
+                Não.
+                               
             */
             Console.WriteLine("Hello World!");
             Pessoa[] pessoas = { new Pessoa("José", DateTime.Now, 2D), new Pessoa("Maria", DateTime.Now, 1.5) };
