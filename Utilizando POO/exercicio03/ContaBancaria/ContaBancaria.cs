@@ -3,12 +3,12 @@ namespace ContaBancariaXUnitTest
     public abstract class ContaBancaria
     {
         public string NumeroConta { get; private set; }
-        public double Saldo { get; private set; }
+        public double Saldo { get; protected set; }
 
-        public ContaBancaria(string numeroConta, double saldo)
+        public ContaBancaria(string numeroConta, double saldoInicial)
         {
             NumeroConta = numeroConta;
-            Saldo = saldo;
+            Saldo = saldoInicial;
         }
 
         public abstract void Depositar(double valor);
