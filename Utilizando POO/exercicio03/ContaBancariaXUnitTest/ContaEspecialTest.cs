@@ -2,7 +2,7 @@ using System;
 using Conta;
 using Xunit;
 
-namespace Conta
+namespace ContaBancariaXUnitTest
 {
     public class ContaEspecialTest
     {
@@ -72,7 +72,7 @@ namespace Conta
         {
             //Given
             ContaBancaria contaEspecial = ContaEspecialValida();
-            var valorSaque = _saldoInicial - _limite - 1;
+            var valorSaque = _saldoInicial + _limite + 1;
             var saldoEsperado = contaEspecial.Saldo;
 
             //When
