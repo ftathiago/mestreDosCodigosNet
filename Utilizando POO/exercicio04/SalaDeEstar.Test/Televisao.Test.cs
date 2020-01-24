@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SalaDeEstar;
 
 namespace SalaDeEstar.Test
 {
@@ -6,8 +7,10 @@ namespace SalaDeEstar.Test
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void ShouldCreateTelevisao()
         {
+            Televisao televisao = new Televisao();
+            Assert.IsNotNull(televisao);
         }
     }
 }
