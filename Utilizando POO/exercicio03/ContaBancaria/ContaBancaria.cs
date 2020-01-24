@@ -1,4 +1,4 @@
-namespace ContaBancariaXUnitTest
+namespace Conta
 {
     public abstract class ContaBancaria
     {
