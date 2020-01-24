@@ -33,5 +33,13 @@ namespace Conta
             Saldo = saldoFinal;
             return true;
         }
+
+        public override void MostrarDados()
+        {
+            Console.WriteLine("======== Conta corrente ========");
+            base.MostrarDados();
+            var taxa = String.Format("Taxa: {0:F3}", _taxaDeOperacoes);
+            Console.WriteLine(taxa);
+        }
     }
 }

@@ -29,5 +29,13 @@ namespace Conta
             Saldo -= valor;
             return true;
         }
+
+        public override void MostrarDados()
+        {
+            Console.WriteLine("======== Conta Especial ========");
+            base.MostrarDados();
+            var limite = String.Format("Limite: {0:C2}", _limite);
+            Console.WriteLine(limite);
+        }
     }
 }
