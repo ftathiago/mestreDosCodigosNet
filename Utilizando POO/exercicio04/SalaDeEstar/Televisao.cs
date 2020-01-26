@@ -2,19 +2,29 @@ namespace SalaDeEstar
 {
     public class Televisao
     {
-        public int SintonizadaEm { get; private set; }
-        public Televisao(int canalInicial)
+        private string[] _canais;
+        private int _canalSintonizado = 0;
+
+        public string SintonizadaEm
         {
-            SintonizadaEm = canalInicial;
+            get => _canais[_canalSintonizado];
+        }
+        public Televisao(string[] listaDeCanais)
+        {
+            _canais = new string[listaDeCanais.Length];
         }
         public void CanalProximo()
         {
-            SintonizadaEm++;
+            _canalSintonizado++;
+            if (_canalSintonizado > _canais.Length)
+                _canalSintonizado = 0;
         }
 
         public void CanalAnterior()
         {
-            SintonizadaEm--;
+            _canalSintonizado--;
+            if (_canalSintonizado < 0)
+                _canalSintonizado = _canais.Length;
         }
     }
 }

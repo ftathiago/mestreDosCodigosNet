@@ -6,11 +6,11 @@ namespace SalaDeEstar.Test
     [TestClass]
     public class UnitTest1
     {
+        private readonly string[] _canais = { "Globo", "HBO", "Universal", "Telecine" };
         [TestMethod]
         public void ShouldCreateTelevisao()
         {
-            var canalInicial = 0;
-            Televisao televisao = new Televisao(canalInicial);
+            Televisao televisao = new Televisao(_canais);
             Assert.IsNotNull(televisao);
         }
 
@@ -18,8 +18,7 @@ namespace SalaDeEstar.Test
         public void ShouldChangeToNextChannelIncreasedByOne()
         {
             Televisao televisao = PegarTelevisao();
-            var canalAtual = televisao.SintonizadaEm;
-            var canalEsperado = canalAtual + 1;
+            var canalEsperado = _canais[1];
 
             televisao.CanalProximo();
 
@@ -31,7 +30,7 @@ namespace SalaDeEstar.Test
         {
             Televisao televisao = PegarTelevisao();
             var canalAtual = televisao.SintonizadaEm;
-            var canalEsperado = canalAtual - 1;
+            var canalEsperado = _canais[1];
 
             televisao.CanalAnterior();
 
@@ -40,8 +39,7 @@ namespace SalaDeEstar.Test
 
         private Televisao PegarTelevisao()
         {
-            var canalInicial = 0;
-            return new Televisao(canalInicial);
+            return new Televisao(_canais);
         }
     }
 }
