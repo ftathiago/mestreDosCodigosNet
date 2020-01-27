@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 namespace exercicio01
 {
-    public class Pessoa : HomoSapiens, IComparable<Pessoa>
+    public class Pessoa : HomoSapiens, IComparable<Pessoa>, ICloneable
     {
         /* Demonstrando encapsulamento */
         private string _nome;
@@ -52,13 +52,30 @@ namespace exercicio01
 
         public int CompareTo(Pessoa pessoa)
         {
+            /* 
+                -1 this precede pessoa
+                0 this e pessoa sao iguais
+                1 this segue adiante de pessoa
+
+                Neste exemplo, a ordenação é para que os mais velhos fiquem adiante na fila
+            */
             if (pessoa == null) return 1;
 
-            if (pessoa.Idade() > this.Idade())
-                return -1;
             if (pessoa.Idade() < this.Idade())
+                return -1;
+            if (pessoa.Idade() > this.Idade())
                 return 1;
             return pessoa.GetNome().CompareTo(this.GetNome());
+        }
+
+        object ICloneable.Clone()
+        {
+            return this.Clone();
+        }
+
+        public Pessoa Clone()
+        {
+            return new Pessoa(this.GetNome(), this.GetDataNascimento(), this.GetAltura());
         }
     }
 }
