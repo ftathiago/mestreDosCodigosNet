@@ -1,8 +1,8 @@
 using System;
-
+using System.Collections.Generic;
 namespace exercicio01
 {
-    public class Pessoa : HomoSapiens
+    public class Pessoa : HomoSapiens, IComparable<Pessoa>
     {
         /* Demonstrando encapsulamento */
         private string _nome;
@@ -46,7 +46,19 @@ namespace exercicio01
         {
             return "Pessoas falam";
         }
+
         public override string ToString() =>
             String.Format($"Nome: {_nome}; Data de nascimento: {_dataNascimento}; Altura: {_altura}");
+
+        public int CompareTo(Pessoa pessoa)
+        {
+            if (pessoa == null) return 1;
+
+            if (pessoa.Idade() > this.Idade())
+                return -1;
+            if (pessoa.Idade() < this.Idade())
+                return 1;
+            return pessoa.GetNome().CompareTo(this.GetNome());
+        }
     }
 }
