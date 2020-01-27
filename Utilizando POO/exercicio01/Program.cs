@@ -37,7 +37,6 @@ namespace exercicio01
                 Não.
                                
             */
-            Console.WriteLine("Hello World!");
             Pessoa[] pessoas = { new Pessoa("José", DateTime.Now, 2D), new Pessoa("Maria", DateTime.Now, 1.5) };
             Galera galera = new Galera(pessoas);
             foreach (Pessoa pessoa in galera)
