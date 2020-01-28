@@ -16,7 +16,7 @@ namespace exercicio04
         {
             var soma = 0M;
             foreach (var nota in Notas)
-                soma = soma + nota.Valor;
+                soma = soma + nota.Conceito;
             return soma / Notas.Count;
         }
     }
