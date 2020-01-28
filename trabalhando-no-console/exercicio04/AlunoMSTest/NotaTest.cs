@@ -38,7 +38,6 @@ namespace AlunoMSTest
         {
             decimal conceitoDecimal = (decimal)conceito;
             Nota nota = new Nota(MATERIA, conceitoDecimal);
-
         }
     }
 }
