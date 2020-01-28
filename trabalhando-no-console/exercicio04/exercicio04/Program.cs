@@ -5,6 +5,21 @@ namespace exercicio04
 {
     class Program
     {
+        static void CarregarAlunos(List<Aluno> alunos)
+        {
+            while (true)
+            {
+                Console.Write("Nome do aluno [deixe em branco para encerrar]: ");
+                var nomeAluno = Console.ReadLine();
+                if (string.IsNullOrEmpty(nomeAluno))
+                    break;
+                var aluno = new Aluno(nomeAluno);
+                AdicionarNotas(aluno);
+                alunos.Add(aluno);
+                Console.WriteLine("====================================================");
+                Console.WriteLine("");
+            }
+        }
         static void AdicionarNotas(Aluno aluno)
         {
             while (true)
@@ -25,21 +40,6 @@ namespace exercicio04
             }
         }
 
-        static void CarregarAlunos(List<Aluno> alunos)
-        {
-            while (true)
-            {
-                Console.Write("Nome do aluno [deixe em branco para encerrar]: ");
-                var nomeAluno = Console.ReadLine();
-                if (string.IsNullOrEmpty(nomeAluno))
-                    break;
-                var aluno = new Aluno(nomeAluno);
-                AdicionarNotas(aluno);
-                alunos.Add(aluno);
-                Console.WriteLine("====================================================");
-                Console.WriteLine("");
-            }
-        }
         static void MostrarAlunosComMediaMaiorQueSete(List<Aluno> alunos)
         {
             Console.WriteLine("");

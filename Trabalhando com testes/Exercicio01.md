@@ -13,3 +13,4 @@ Foram feitos testes utilizando o XUnit e o MSTest
 
 - MSTest
 + ./"Utilizando POO"/exercicio04/SalaDeEstar.Test
++ ./trabalhado-no-console/exercicio04/AlunoMSTest
