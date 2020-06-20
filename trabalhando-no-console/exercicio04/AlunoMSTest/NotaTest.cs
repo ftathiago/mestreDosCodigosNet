@@ -1,5 +1,7 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using exercicio04;
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 using System;
 
 namespace AlunoMSTest
@@ -13,6 +15,7 @@ namespace AlunoMSTest
         private const decimal CONCEITO_MINIMO = 0M;
         private const decimal CONCEITO_INVALIDO_MAIOR = 10.001M;
         private const decimal CONCEITO_INVALIDO_MENOR = 0.0001M;
+
         [TestMethod]
         public void ShouldCreateNota()
         {
@@ -37,6 +40,7 @@ namespace AlunoMSTest
         public void ShouldNotStoreInvalidConceito(double conceito)
         {
             decimal conceitoDecimal = (decimal)conceito;
+
             Nota nota = new Nota(MATERIA, conceitoDecimal);
         }
     }

@@ -2,24 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 
+/* 8. Faça uma aplicação ler N valores decimais, imprima os valores em ordem crescente e decrescente. */
+
 namespace exercicio08
 {
 
     class Program
     {
-        static int LerInteiro(String mensagem)
-        {
-            Console.Write(mensagem);
-            var entrada = Console.ReadLine();
-            var entradaValida = Int32.TryParse(entrada, out var inteiro);
-            if (!entradaValida)
-            {
-                Console.WriteLine("Entrada inválida!");
-                return LerInteiro(mensagem);
-            }
-            return inteiro;
-        }
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             var tamanhoLeitura = LerInteiro("Informe a quantidade de itens para leitura: ");
             List<int> inteiros = new List<int>();
@@ -43,6 +33,19 @@ namespace exercicio08
             {
                 Console.Write(inteiro + ", ");
             }
+        }
+
+        private static int LerInteiro(String mensagem)
+        {
+            Console.Write(mensagem);
+            var entrada = Console.ReadLine();
+            var entradaValida = Int32.TryParse(entrada, out var inteiro);
+            if (!entradaValida)
+            {
+                Console.WriteLine("Entrada inválida!");
+                return LerInteiro(mensagem);
+            }
+            return inteiro;
         }
     }
 }

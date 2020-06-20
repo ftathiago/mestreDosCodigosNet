@@ -1,4 +1,7 @@
-﻿namespace SalaDeEstar
+﻿using System.Collections;
+using System.Collections.Generic;
+
+namespace SalaDeEstar
 {
     public interface ITelevisao
     {
@@ -8,6 +11,7 @@
         void CanalAnterior();
         void VolumeAumentar();
         void VolumeDiminuir();
+        IEnumerable<string> MostrarCanaisDisponiveis();
         bool MudarParaCanal(int canal);
         string Display();
     }

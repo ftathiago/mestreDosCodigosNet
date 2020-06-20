@@ -1,13 +1,22 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
+/*
+2. Crie uma aplicação que receba nome e salario de N funcionários. Utilize a repetição for e while.
+    - Imprima o maior salario
+    - Imprima o menor salario. 
+*/
 namespace exercicio02
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Funcionario maiorSalario = new Funcionario();
-            Funcionario menorSalario = new Funcionario();
+            var funcionarios = new List<Funcionario>();
+
+            Funcionario maiorSalario;
+            Funcionario menorSalario;
 
             while (true)
             {
@@ -19,20 +28,29 @@ namespace exercicio02
                 Console.WriteLine("Digite o salário");
                 var salarioEntrada = Console.ReadLine();
 
-                bool salarioValido = Decimal.TryParse(salarioEntrada, out var salario);
+                var salarioValido = decimal.TryParse(salarioEntrada, out var salario);
                 if (!salarioValido)
                 {
                     Console.WriteLine("Valor de salário informado inválido!");
-                    break;
+                    continue;
                 }
 
                 var funcionario = new Funcionario(nome, salario);
+                funcionarios.Add(funcionario);
+            }
 
-                var ehMenorSalario = funcionario.Salario < menorSalario.Salario;
+            maiorSalario = funcionarios.FirstOrDefault();
+            menorSalario = maiorSalario;
+
+            for (int i = 1; i < funcionarios.Count(); i++)
+            {
+                var funcionario = funcionarios[i];
+
+                var ehMenorSalario = menorSalario.Salario > funcionario.Salario;
+                var ehMaiorSalario = maiorSalario.Salario < funcionario.Salario;
+
                 if (ehMenorSalario)
                     menorSalario = funcionario;
-
-                var ehMaiorSalario = funcionario.Salario > maiorSalario.Salario;
                 if (ehMaiorSalario)
                     maiorSalario = funcionario;
             }

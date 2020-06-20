@@ -7,8 +7,8 @@ namespace ContaBancariaXUnitTest
     public class ContaEspecialTest
     {
         private const string _numeroConta = "0123456-x";
-        private const double _saldoInicial = 100;
-        private const double _limite = 100;
+        private const decimal _saldoInicial = 100;
+        private const decimal _limite = 100;
 
         [Fact]
         public void ShouldCreateContaEspecial()
@@ -22,7 +22,7 @@ namespace ContaBancariaXUnitTest
         public void ShouldDepositIncreaseAmount()
         {
             ContaBancaria contaEspecial = ContaEspecialValida();
-            var valorDepositado = 100;
+            var valorDepositado = 100M;
             var saldoEsperado = valorDepositado + _saldoInicial;
             contaEspecial.Depositar(valorDepositado);
 
@@ -43,7 +43,7 @@ namespace ContaBancariaXUnitTest
         {
             //Given
             ContaBancaria contaEspecial = ContaEspecialValida();
-            var valorSaque = 50;
+            var valorSaque = 50M;
             var saldoEsperado = _saldoInicial - valorSaque;
 
             //When
@@ -58,7 +58,7 @@ namespace ContaBancariaXUnitTest
         public void ShouldAmountBeNegative()
         {
             ContaBancaria contaEspecial = ContaEspecialValida();
-            var valorSaque = _saldoInicial + 1;
+            var valorSaque = _saldoInicial + 1M;
             var saldoEsperado = _saldoInicial - valorSaque;
 
             var saqueOk = contaEspecial.Sacar(valorSaque);
@@ -72,7 +72,7 @@ namespace ContaBancariaXUnitTest
         {
             //Given
             ContaBancaria contaEspecial = ContaEspecialValida();
-            var valorSaque = _saldoInicial + _limite + 1;
+            var valorSaque = _saldoInicial + _limite + 1M;
             var saldoEsperado = contaEspecial.Saldo;
 
             //When

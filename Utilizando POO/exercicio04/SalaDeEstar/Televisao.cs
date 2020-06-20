@@ -1,19 +1,23 @@
+using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 
 namespace SalaDeEstar
 {
     public class Televisao: ITelevisao
     {
-        private string[] _canais;
-        private int _canalSintonizado = 0;
-        private const int VOLUME_MINIMO = 0;
-        private const int VOLUME_MAXIMO = 100;
-
         public int VolumeAtual { get; private set; }
         public string SintonizadaEm
         {
             get => _canais[_canalSintonizado];
         }
+
+        private string[] _canais;
+        private int _canalSintonizado = 0;
+        private const int VOLUME_MINIMO = 0;
+        private const int VOLUME_MAXIMO = 100;
+
+
         public Televisao(string[] listaDeCanais)
         {
             VolumeAtual = 50;
@@ -25,7 +29,7 @@ namespace SalaDeEstar
         public void CanalProximo()
         {
             _canalSintonizado++;
-            if (_canalSintonizado > _canais.Length)
+            if (_canalSintonizado >= _canais.Length)
                 _canalSintonizado = 0;
         }
 
@@ -64,6 +68,13 @@ namespace SalaDeEstar
             stringBuilder.AppendLine($"Canal: {SintonizadaEm}");
             stringBuilder.AppendLine($"Volume: {VolumeAtual}");
             return stringBuilder.ToString();
+        }
+
+        public IEnumerable<string> MostrarCanaisDisponiveis()
+        {
+            var canais = new List<string>();
+            canais.AddRange(_canais);
+            return canais;
         }
     }
 }

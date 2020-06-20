@@ -4,14 +4,15 @@ namespace Conta
 {
     public class ContaCorrente : ContaBancaria
     {
-        private readonly double _taxaDeOperacoes;
-        public ContaCorrente(string numeroConta, double saldoInicial, double taxaDeOperacoes) :
+        private readonly decimal _taxaDeOperacoes;
+
+        public ContaCorrente(string numeroConta, decimal saldoInicial, decimal taxaDeOperacoes) :
             base(numeroConta, saldoInicial)
         {
             _taxaDeOperacoes = taxaDeOperacoes;
         }
 
-        public override void Depositar(double valor)
+        public override void Depositar(decimal valor)
         {
             if (valor < 0)
                 throw new ArgumentException("Não é possível fazer depósito negativo!");
@@ -21,8 +22,11 @@ namespace Conta
             Saldo += valorDeposito;
         }
 
-        public override bool Sacar(double valor)
+        public override bool Sacar(decimal valor)
         {
+            if (valor < 0)
+                throw new ArgumentException("Não é possível fazer depósito negativo!");
+
             var taxaDeSaque = valor * _taxaDeOperacoes;
             var descontoTotal = valor + taxaDeSaque;
             var saldoFinal = Saldo - descontoTotal;

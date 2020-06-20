@@ -2,23 +2,28 @@
 using System.Collections.Generic;
 using System.Linq;
 
+/*
+ 9. Utilizando a biblioteca LINQ crie no console e execute:
+    - Crie uma lista que receba inteiros.
+    - Imprimir todos os números da lista.
+    - Imprimir todos os números da lista na ordem crescente.
+    - Imprimir todos os números da lista na ordem decrescente.
+    - Imprima apenas o primeiro número da lista
+    - Imprima apenas o ultimo número da lista
+    - Insira um numero no inicio da lista.
+    - Insira um numero no final da lista.
+    - Remova o primeiro número .
+    - Remova o ultimo número .
+    - Retorne apenas os número pares.
+    - Retorne apenas o número informado.
+    - Transforme todos os numero da lista em um array.
+*/
+
 namespace exercicio09
 {
     class Program
     {
-        static int LerInteiro(String mensagem)
-        {
-            Console.Write(mensagem);
-            var entrada = Console.ReadLine();
-            var entradaValida = Int32.TryParse(entrada, out var inteiro);
-            if (!entradaValida)
-            {
-                Console.WriteLine("Entrada inválida!");
-                return LerInteiro(mensagem);
-            }
-            return inteiro;
-        }
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             var tamanhoLeitura = LerInteiro("Informe a quantidade de itens para leitura: ");
             List<int> inteiros = new List<int>();
@@ -94,6 +99,19 @@ namespace exercicio09
             Console.WriteLine();
 
             Console.WriteLine("Até logo!");
+        }
+        
+        private static int LerInteiro(String mensagem)
+        {
+            Console.Write(mensagem);
+            var entrada = Console.ReadLine();
+            var entradaValida = Int32.TryParse(entrada, out var inteiro);
+            if (!entradaValida)
+            {
+                Console.WriteLine("Entrada inválida!");
+                return LerInteiro(mensagem);
+            }
+            return inteiro;
         }
     }
 }

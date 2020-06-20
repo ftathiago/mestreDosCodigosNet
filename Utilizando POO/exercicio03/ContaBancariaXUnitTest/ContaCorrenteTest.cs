@@ -6,14 +6,15 @@ namespace ContaBancariaXUnitTest
 {
     public class ContaCorrenteTest
     {
-        private readonly double _taxaDeOperacoes = 0.5;
-        private readonly double _saldoInicial = 100;
+        private readonly decimal _taxaDeOperacoes = 0.5M;
+        private readonly decimal _saldoInicial = 100;
+
         [Fact]
         public void ShouldCreateContaCorrente()
         {
             string numeroContaCorrente = "34035-0";
-            double saldoInicial = 100;
-            double taxaOperacional = 0.5;
+            decimal saldoInicial = 100;
+            decimal taxaOperacional = 0.5M;
             ContaBancaria contaCorrente = new ContaCorrente(numeroContaCorrente, saldoInicial, taxaOperacional);
 
             Assert.NotNull(contaCorrente);
@@ -57,7 +58,7 @@ namespace ContaBancariaXUnitTest
         public void ShouldAlwaysBePositive()
         {
             ContaBancaria contaCorrente = ContaCorrenteValida();
-            var valorSaque = _saldoInicial + 0.01;
+            var valorSaque = _saldoInicial + 0.01M;
             var saldoEsperado = _saldoInicial;
 
             var saquePossivel = contaCorrente.Sacar(valorSaque);

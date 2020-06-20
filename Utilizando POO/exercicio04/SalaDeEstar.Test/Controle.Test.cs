@@ -32,10 +32,12 @@ namespace SalaDeEstar.Test
             _televisao
                 .Setup(x => x.VolumeAumentar())
                 .Verifiable();
-            Controle controle = GetControle(_televisao);
+            var controle = GetControle(_televisao);  
 
-            controle.VolumeAumentar();
-
+            var acoes = controle.PegarControlesMenu();  
+            acoes.TryGetValue(Controle.BOTAO_VOLUME_AUMENTAR, out var acao);
+            acao();
+            
             _televisao.Verify(x => x.VolumeAumentar(), Times.Once);
         }
 
@@ -47,7 +49,9 @@ namespace SalaDeEstar.Test
                 .Verifiable();
             Controle controle = GetControle(_televisao);
 
-            controle.VolumeDiminuir();
+            var acoes = controle.PegarControlesMenu();
+            acoes.TryGetValue(Controle.BOTAO_VOLUME_DIMINUIR, out var acao);
+            acao();
 
             _televisao.Verify(x => x.VolumeDiminuir(), Times.Once);
         }
@@ -60,7 +64,9 @@ namespace SalaDeEstar.Test
                 .Verifiable();
             Controle controle = GetControle(_televisao);
 
-            controle.CanalProximo();
+            var acoes = controle.PegarControlesMenu();
+            acoes.TryGetValue(Controle.BOTAO_CANAL_PROXIMO, out var acao);
+            acao();
 
             _televisao.Verify(x => x.CanalProximo(), Times.Once);
         }
@@ -73,22 +79,11 @@ namespace SalaDeEstar.Test
                 .Verifiable();
             Controle controle = GetControle(_televisao);
 
-            controle.CanalAnterior();
+            var acoes = controle.PegarControlesMenu();
+            acoes.TryGetValue(Controle.BOTAO_CANAL_ANTERIOR, out var acao);
+            acao();
 
             _televisao.Verify(x => x.CanalAnterior(), Times.Once);
-        }
-
-        [TestMethod]
-        public void ShouldChangeToSpecifiedChannel()
-        {
-            _televisao
-                .Setup(x => x.MudarParaCanal(It.Is<int>(p => p == 10)))
-                .Verifiable();
-            Controle controle = GetControle(_televisao);
-
-            controle.MudarCanalPara(10);
-
-            _televisao.Verify();
         }
 
         [TestMethod]
@@ -97,19 +92,16 @@ namespace SalaDeEstar.Test
             StringBuilder televisaoDisplay = new StringBuilder();
             televisaoDisplay.AppendLine($"Canal: Globo");
             televisaoDisplay.Append($"Volume: {INITIAL_VOLUME}");
-
             StringBuilder expectedDisplay = new StringBuilder();
             expectedDisplay.AppendLine();
-            expectedDisplay.AppendLine("+-----------------------------+");
-            expectedDisplay.AppendLine("Dados da TV:");
-            expectedDisplay.AppendLine($"Canal: Globo");
-            expectedDisplay.AppendLine($"Volume: {INITIAL_VOLUME}");
-            expectedDisplay.AppendLine("+-----------------------------+");
+            expectedDisplay.AppendLine("+=============================+");
+            expectedDisplay.AppendLine("Você está assistindo: Canal: Globo");
+            expectedDisplay.Append($"Volume: {INITIAL_VOLUME}");
+            expectedDisplay.AppendLine("+=============================+");
             _televisao
                 .Setup(x => x.Display())
                 .Returns(televisaoDisplay.ToString)
                 .Verifiable();
-
             Controle controle = GetControle(_televisao);
 
             var displayInfo = controle.DisplayInfo();
@@ -117,7 +109,6 @@ namespace SalaDeEstar.Test
             Assert.AreEqual(expectedDisplay.ToString(), displayInfo);
             _televisao.Verify(x => x.Display(), Times.Once);
         }
-
 
         private Controle GetControle(Mock<ITelevisao> televisao)
         {

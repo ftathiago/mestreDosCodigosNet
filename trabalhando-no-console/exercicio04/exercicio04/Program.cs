@@ -5,7 +5,15 @@ namespace exercicio04
 {
     class Program
     {
-        static void CarregarAlunos(List<Aluno> alunos)
+        static void Main(string[] args)
+        {
+            List<Aluno> alunos = new List<Aluno>();
+            CarregarAlunos(alunos);
+
+            MostrarAlunosComMediaMaiorQueSete(alunos);
+        }
+
+        private static void CarregarAlunos(List<Aluno> alunos)
         {
             while (true)
             {
@@ -20,7 +28,8 @@ namespace exercicio04
                 Console.WriteLine("");
             }
         }
-        static void AdicionarNotas(Aluno aluno)
+
+        private static void AdicionarNotas(Aluno aluno)
         {
             while (true)
             {
@@ -40,7 +49,7 @@ namespace exercicio04
             }
         }
 
-        static void MostrarAlunosComMediaMaiorQueSete(List<Aluno> alunos)
+        private static void MostrarAlunosComMediaMaiorQueSete(List<Aluno> alunos)
         {
             Console.WriteLine("");
             Console.WriteLine("Mostrando alunos com nota maior que 7");
@@ -50,13 +59,6 @@ namespace exercicio04
                 if (mediaCalculada > 7)
                     Console.WriteLine($"O aluno {aluno.Nome} possui média {mediaCalculada}");
             }
-        }
-        static void Main(string[] args)
-        {
-            List<Aluno> alunos = new List<Aluno>();
-            CarregarAlunos(alunos);
-
-            MostrarAlunosComMediaMaiorQueSete(alunos);
         }
     }
 }

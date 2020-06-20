@@ -1,9 +1,38 @@
 ﻿using System;
 
+/*
+1. Crie uma aplicação, que receba os valores A e B. Mostre de forma simples, como utilizar variáveis e manipular dados.
+
+ - Some esses 2 valores;
+ - Faça uma subtração do valor A - B;
+ - Divida o valor B por A;
+ - Multiplique o valor A por B;
+ - Imprima os valores de entrada, informado se o número é par ou impar;
+ - Imprima todos os resultados no console, de forma que o usuário escolha a ação desejada.
+*/
+
 namespace exercicio01
 {
     class Program
     {
+
+        static void Main(string[] args)
+        {
+            int valorA = PegarValor("Informe o valor A");
+            int valorB = PegarValor("Informe o valor B");
+            var opcao = -1;
+            while (opcao != 0)
+            {
+                opcao = Menu();
+                if (opcao == 0)
+                {
+                    Console.WriteLine("Até logo!");
+                    continue;
+                }
+                Calcular(valorA, valorB, opcao);
+            }
+        }
+
         static int PegarValor(string mensagem)
         {
             Console.WriteLine(mensagem);
@@ -66,24 +95,9 @@ namespace exercicio01
                     break;
             }
             Console.WriteLine($"Resultado: {resultado}");
+            Console.WriteLine("");
             Console.WriteLine("==================================");
             Console.WriteLine("");
-        }
-        static void Main(string[] args)
-        {
-            int valorA = PegarValor("Informe o valor A");
-            int valorB = PegarValor("Informe o valor B");
-            var opcao = -1;
-            while (opcao != 0)
-            {
-                opcao = Menu();
-                if (opcao == 0)
-                {
-                    Console.WriteLine("Até logo!");
-                    continue;
-                }
-                Calcular(valorA, valorB, opcao);
-            }
         }
     }
 }

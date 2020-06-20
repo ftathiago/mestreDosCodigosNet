@@ -37,6 +37,7 @@ namespace AlunoXUnitTest
         public void ShouldNotStoreInvalidConceito(double conceito)
         {
             decimal conceitoDecimal = (decimal)conceito;
+
             Assert.Throws<ArgumentOutOfRangeException>(() =>
                 {
                     Nota nota = new Nota(MATERIA, conceitoDecimal);

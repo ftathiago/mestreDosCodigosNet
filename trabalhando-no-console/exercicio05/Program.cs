@@ -1,15 +1,15 @@
 ﻿using System;
 
+/* 
+5. Crie uma aplicação que calcule a fórmula de Bhaskara. 
+    - Receba os valores a,b,c.
+    - Imprima os resultados R1 e R2.
+    - Use a biblioteca MATH. 
+*/
 namespace exercicio05
 {
     class Program
     {
-        static int CarregarElemento(string nomeElemento)
-        {
-            Console.Write($"Valor da variável {nomeElemento}: ");
-            var elemento = Console.ReadLine();
-            return Int32.Parse(elemento);
-        }
         static void Main(string[] args)
         {
             int a = CarregarElemento("A");
@@ -22,6 +22,13 @@ namespace exercicio05
 
             Console.WriteLine($"R1: {resultado1}");
             Console.WriteLine($"R2: {resultado2}");
+        }
+
+        private static int CarregarElemento(string nomeElemento)
+        {
+            Console.Write($"Valor da variável {nomeElemento}: ");
+            var elemento = Console.ReadLine();
+            return Int32.Parse(elemento);
         }
     }
 }

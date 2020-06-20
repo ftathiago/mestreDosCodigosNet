@@ -1,12 +1,10 @@
-﻿using System;
-
-namespace Conta
+﻿namespace Conta
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            ContaBancaria contaCorrente = new ContaCorrente("001-x", 100, 0.05);
+            ContaBancaria contaCorrente = new ContaCorrente("001-x", 100, 0.05M);
             contaCorrente.MostrarDados();
             contaCorrente.Depositar(100);
             contaCorrente.Sacar(50);

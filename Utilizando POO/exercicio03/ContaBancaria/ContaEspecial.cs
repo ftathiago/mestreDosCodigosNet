@@ -4,14 +4,15 @@ namespace Conta
 {
     public class ContaEspecial : ContaBancaria
     {
-        private readonly double _limite;
-        public ContaEspecial(string numeroConta, double saldoInicial, double limite) :
+        private readonly decimal _limite;
+
+        public ContaEspecial(string numeroConta, decimal saldoInicial, decimal limite) :
             base(numeroConta, saldoInicial)
         {
             _limite = limite;
         }
 
-        public override void Depositar(double valor)
+        public override void Depositar(decimal valor)
         {
             if (valor <= 0)
                 throw new ArgumentException("Não é possível depósito negativo!");
@@ -19,7 +20,7 @@ namespace Conta
             Saldo += valor;
         }
 
-        public override bool Sacar(double valor)
+        public override bool Sacar(decimal valor)
         {
             var saldoParcial = Math.Abs(Saldo - valor);
 
